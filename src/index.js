@@ -21,13 +21,6 @@ window.onload = function () {
     });
 
     peek.addEventListener("click", function() {
-        // If-sats för att skriva ut "Stacken är tom.." om inget pushats
-        // när man klickar på "Vad finns överst på stacken?"
-        // (Detta används enbart för testet)
-        if (stack.peek() === undefined) {
-          display.innerHTML = "Stacken är tom.."
-        } else {
-          display.innerHTML = stack.peek();
-      }
+        display.innerHTML = stack.peek();
     });
 };
