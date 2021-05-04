@@ -23,6 +23,17 @@ test('The stack should be empty in the beginning', async () => {
 	expect(stack).toEqual("n/a");
 });
 
+
+// Test för att kontrollera att vi skriver ut "undefined" när
+// stacken är tom och man klickar på "Vad finns överst på stacken?"
+test('"Vad finns överst på stacken?" should return undefined if stack is empty', async () => {
+  let peek = await driver.findElement(By.id('peek'));
+  await peek.click();
+  let stack = await driver.findElement(By.id('top_of_stack')).getText();
+  expect(stack).toEqual("undefined");
+});
+
+
 describe('Clicking "Pusha till stacken"', () => {
 	it('should open a prompt box', async () => {
 		let push = await driver.findElement(By.id('push'));

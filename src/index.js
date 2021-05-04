@@ -11,6 +11,7 @@ window.onload = function () {
     pop.addEventListener("click", function() {
         var text = "Tog bort " + stack.pop();
         alert(text);
+        display.innerHTML = stack.peek();
     });
 
     push.addEventListener("click", function() {
@@ -20,6 +21,13 @@ window.onload = function () {
     });
 
     peek.addEventListener("click", function() {
-        display.innerHTML = stack.peek();
+        // If-sats för att skriva ut "Stacken är tom.." om inget pushats
+        // när man klickar på "Vad finns överst på stacken?"
+        // (Detta används enbart för testet)
+        if (stack.peek() === undefined) {
+          display.innerHTML = "Stacken är tom.."
+        } else {
+          display.innerHTML = stack.peek();
+      }
     });
 };
